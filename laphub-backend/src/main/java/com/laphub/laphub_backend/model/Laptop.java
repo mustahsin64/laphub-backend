@@ -19,14 +19,30 @@ public class Laptop {
     private String id;
 
     private String name;
-    private String brand;
+
     private BigDecimal price;
     private String imageUrl;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(columnDefinition = "TEXT")
+    private String specification;
+
+    @Column(nullable = false)
+    private int releaseYear;
+
+
+    @Enumerated(EnumType.STRING)
+    private LaptopLabel label;
+
+    @Enumerated(EnumType.STRING)
+    private LaptopBrand brand;
+
+    private boolean isNewRelease=false;
+
+    private int likeCount=0;
+
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
-
 }

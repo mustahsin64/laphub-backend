@@ -2,9 +2,12 @@ package com.laphub.laphub_backend.controller;
 
 
 import com.laphub.laphub_backend.model.Laptop;
+import com.laphub.laphub_backend.model.LaptopBrand;
+import com.laphub.laphub_backend.model.LaptopLabel;
 import com.laphub.laphub_backend.service.LaptopService;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -37,6 +40,18 @@ public class LaptopController {
         return service.updateLaptop(id, laptop);
     }
 
+    @GetMapping("/filter")
+    public List<Laptop> filterLaptops(
+            @RequestParam(required = false) Integer releaseYear,
+            @RequestParam(required = false) LaptopLabel label,
+            @RequestParam(required = false) LaptopBrand brand,
+            @RequestParam(required = false) BigDecimal minPrice,
+            @RequestParam(required = false) BigDecimal maxPrice
+    ) {
+        return service.filterLaptops(releaseYear, label, brand, minPrice, maxPrice);
+    }
+
+    @DeleteMapping
     public void delete(@PathVariable String id){
         service.deleteLaptop(id);
     }

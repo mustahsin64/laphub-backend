@@ -1,5 +1,5 @@
 # Stage 1: Build the jar
-FROM maven:3.9.1-eclipse-temurin-18 AS builder
+FROM maven:3.8.6-eclipse-temurin-18 AS builder
 
 # Set working directory inside the container
 WORKDIR /app
@@ -9,7 +9,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the jar
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:18-jre
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 

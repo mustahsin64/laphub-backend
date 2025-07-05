@@ -42,6 +42,7 @@ public class LaptopService {
         existing.setSpecification(updated.getSpecification());
         existing.setReleaseYear(updated.getReleaseYear());
         existing.setLabel(updated.getLabel());
+        existing.setLink(updated.getLink());
         existing.setNewRelease(updated.isNewRelease());
         existing.setLikeCount(updated.getLikeCount());
 

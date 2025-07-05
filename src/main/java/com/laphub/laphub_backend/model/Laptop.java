@@ -43,6 +43,9 @@ public class Laptop {
 
     private int likeCount=0;
 
+    @Column(columnDefinition = "TEXT")
+    private String link;
+
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 }

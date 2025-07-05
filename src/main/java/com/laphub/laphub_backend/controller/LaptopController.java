@@ -20,6 +20,11 @@ public class LaptopController {
         this.service = service;
     }
 
+    @GetMapping("/ping")
+    public String ping(){
+        return "Ping Ok";
+    }
+
     @GetMapping
     public List<Laptop> getAll(){
         return service.getAllLaptops();
